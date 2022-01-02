@@ -39,16 +39,16 @@ public class MetricButtonsListener implements ActionListener {
         if (metricCalculatorController.getOperationState() == 2) {
             String s = unit1label.getText() + "To" + unit2label.getText();
             ConversionCommand command;
-            double resultholder = 0;
+            double resultHolder = 0;
             try {
                 command = conversionCommandFactory.Create(ConversionType.valueOf(s));
-                resultholder = command.Execute(Double.parseDouble(inputField.getText()));
+                resultHolder = command.Execute(Double.parseDouble(inputField.getText()));
             } catch (IllegalArgumentException i) {
                 s = unit2label.getText() + "To" + unit1label.getText();
                 command = conversionCommandFactory.Create(ConversionType.valueOf(s));
-                resultholder = command.unExecute(Double.parseDouble(inputField.getText()));
+                resultHolder = command.unExecute(Double.parseDouble(inputField.getText()));
             }
-            result.setText(String.valueOf(resultholder));
+            result.setText(String.valueOf(resultHolder));
             jc1.setEnabled(true);
             jc2.setEnabled(true);
             jc3.setEnabled(true);

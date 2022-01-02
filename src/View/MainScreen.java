@@ -47,7 +47,7 @@ public class MainScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ScientificCalculator f = ScientificCalculator.getInstance();
                 f.setTitle("Scientific Calculator");
-                f.setPreferredSize(new Dimension(300,375));
+                f.setPreferredSize(new Dimension(300,430));
                 f.pack();
                 f.setVisible(true);
                 f.setLocationRelativeTo(null);
@@ -80,9 +80,14 @@ public class MainScreen extends JFrame {
 
     public static void main(String args[]) {
         try {
-            UIManager
-                    .setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
         } catch (Exception e) {
+            System.out.println("nimbus look and feel not available on this system, gui might be bugged!");
         }
 
 
