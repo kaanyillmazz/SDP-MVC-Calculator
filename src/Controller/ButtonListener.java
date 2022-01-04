@@ -103,11 +103,12 @@ public class ButtonListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
 
+        //check if the input field is empty
+        //if so set it to empty state
         if(inputField.getText().equals(""))
             currentState = emptyState;
 
         currentState.Execute(cmd);
         inputField.requestFocus();
     }
-
 }

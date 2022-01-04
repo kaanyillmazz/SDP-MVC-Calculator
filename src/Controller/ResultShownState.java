@@ -2,9 +2,10 @@ package Controller;
 
 import javax.swing.*;
 
+//this state is for when the inputField needs a reset before an operation
+//Probably after when a result is shown
 public class ResultShownState implements State {
-    //this state is for when the inputField needs a reset before an operation
-    //Probably after when a result is shown
+
 
     ButtonListener buttonListener;
     JTextField inputField;
@@ -185,7 +186,7 @@ public class ResultShownState implements State {
         if (cmd.equals("MR")) {
             inputField.setText("");
             inputField.setText(inputField.getText() + buttonListener.getMemory());
-            info.setText("memory rcl" + inputField.getText());
+            info.setText("memory recall: " + inputField.getText());
             buttonListener.setCurrentState(buttonListener.getResultShownState());
         }
         if (cmd.equals("M+")) {
@@ -206,7 +207,6 @@ public class ResultShownState implements State {
             } else {
                 buttonListener.setMemory(buttonListener.getMemory() - Double.parseDouble(inputField.getText()));
                 info.setText("M-: " + buttonListener.getMemory());
-
             }
         }
         if (cmd.equals("MS")) {
@@ -226,8 +226,6 @@ public class ResultShownState implements State {
             localResult = Math.sin(radians);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
-
-
         }
         if (cmd.equals("COS")) {
             double degrees = Double.parseDouble(inputField.getText());
@@ -236,7 +234,6 @@ public class ResultShownState implements State {
             localResult = Math.sqrt(asquare);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
-
         }
         if (cmd.equals("TAN")) {
             double degrees = Double.parseDouble(inputField.getText());
@@ -244,16 +241,12 @@ public class ResultShownState implements State {
             localResult = Math.tan(radians);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
-
-
         }
         if (cmd.equals("=")) {
             buttonListener.setSecond(Double.parseDouble(inputField.getText()));
 
-
             double first = buttonListener.getFirst();
             double second = buttonListener.getSecond();
-
             double result = 0;
 
             switch (buttonListener.getOperation()) {
@@ -273,9 +266,7 @@ public class ResultShownState implements State {
             inputField.setText("");
             inputField.setText(inputField.getText() + result);
             buttonListener.setResult(result);
-
             buttonListener.setCurrentState(buttonListener.getResultShownState());
-
 
         }
         if (cmd.equals("n!")) {
@@ -285,7 +276,6 @@ public class ResultShownState implements State {
 
         }
         inputField.requestFocus();
-
     }
 
     double fact(double x) {
