@@ -62,6 +62,7 @@ public class EmptyState implements State {
             inputField.setText("");
         }
         if (cmd.equals("log")) {
+            //can't do these operations on nonexistent number
             inputField.setText("");
         }
         if (cmd.equals("1/x")) {
@@ -119,40 +120,37 @@ public class EmptyState implements State {
             buttonListener.setCurrentState(buttonListener.getResultShownState());
         }
         if (cmd.equals("M+")) {
+            //you can't add nothing to memory variable
             inputField.setText("");
             info.setText("m: can't add nothing " + inputField.getText());
         }
         if (cmd.equals("M-")) {
+            //you can't subtract nothing from memory variable
             inputField.setText("");
             info.setText("m: can't subtract nothing " + inputField.getText());
         }
         if (cmd.equals("MS")) {
+            //you can't store nothing as memory variable
             inputField.setText("");
             info.setText("m: can't store nothing" + inputField.getText());
         }
         if (cmd.equals("Sqrt")) {
             inputField.setText("");
-
         }
         if (cmd.equals("SIN")) {
             inputField.setText("");
-
         }
         if (cmd.equals("COS")) {
             inputField.setText("");
-
         }
         if (cmd.equals("TAN")) {
             inputField.setText("");
-
         }
         if (cmd.equals("=")) {
             inputField.setText("");
-
         }
         if (cmd.equals("n!")) {
             inputField.setText("");
-
         }
         inputField.requestFocus();
     }

@@ -155,6 +155,7 @@ public class OperatingState implements State {
             buttonListener.setCurrentState(buttonListener.getResultShownState());
         }
         if (cmd.equals("M+")) {
+            //check if the memory is empty
             if (!buttonListener.isMemoryFull()) {
                 buttonListener.setMemory(Double.parseDouble(inputField.getText()));
                 buttonListener.setMemoryFull(true);
@@ -165,6 +166,7 @@ public class OperatingState implements State {
             }
         }
         if (cmd.equals("M-")) {
+            //check if the memory is empty
             if (!buttonListener.isMemoryFull()) {
                 buttonListener.setMemory(Double.parseDouble(inputField.getText()));
                 buttonListener.setMemoryFull(true);
@@ -172,7 +174,6 @@ public class OperatingState implements State {
             } else {
                 buttonListener.setMemory(buttonListener.getMemory() - Double.parseDouble(inputField.getText()));
                 info.setText("M-: " + buttonListener.getMemory());
-
             }
         }
         if (cmd.equals("MS")) {
