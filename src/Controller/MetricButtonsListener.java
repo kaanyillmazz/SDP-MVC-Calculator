@@ -59,9 +59,15 @@ public class MetricButtonsListener implements ActionListener {
                 command = conversionCommandFactory.Create(ConversionType.valueOf(unitGetter));
                 resultHolder = command.Execute(Double.parseDouble(inputField.getText()));
             } catch (IllegalArgumentException i) {
-                unitGetter = unit2label.getText() + "To" + unit1label.getText();
-                command = conversionCommandFactory.Create(ConversionType.valueOf(unitGetter));
-                resultHolder = command.unExecute(Double.parseDouble(inputField.getText()));
+                //had to try catch again to avoid system from throwing an error
+                //in case of user entering numbers
+                try {
+                    unitGetter = unit2label.getText() + "To" + unit1label.getText();
+                    command = conversionCommandFactory.Create(ConversionType.valueOf(unitGetter));
+                    resultHolder = command.unExecute(Double.parseDouble(inputField.getText()));
+                } catch (Exception afs) {
+                    System.out.println("user did not enter numbers or unit not found");
+                }
             }
             //set the result
             result.setText(String.valueOf(resultHolder));
@@ -74,6 +80,22 @@ public class MetricButtonsListener implements ActionListener {
             //set conversion state to nothing selected
             info.setText("select first unit");
             metricCalculatorController.setOperationState(0);
+        } else if (metricCalculatorController.getOperationState() == 1)  {
+            JDialog warning = new JDialog();
+            JLabel warn = new JLabel("Select a new Second Unit!");
+            warning.setTitle("Warning!");
+            warning.add(warn);
+            warning.setVisible(true);
+            warning.setLocationRelativeTo(null);
+            warning.pack();
+        } else if (metricCalculatorController.getOperationState() == 0) {
+            JDialog warning = new JDialog();
+            JLabel warn = new JLabel("Select a unit!");
+            warning.setTitle("Warning!");
+            warning.add(warn);
+            warning.setVisible(true);
+            warning.setLocationRelativeTo(null);
+            warning.pack();
         }
 
     }
