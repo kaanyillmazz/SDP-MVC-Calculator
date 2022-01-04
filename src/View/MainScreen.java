@@ -7,14 +7,14 @@ import java.awt.event.ActionListener;
 
 
 public class MainScreen extends JFrame {
-    Container container;
-    JButton basicCalc;
-    JButton sciCalc;
-    JButton metricCalc;
-    JPanel textPanel;
+    private Container container;
+    private JButton basicCalc;
+    private JButton sciCalc;
+    private JButton metricCalc;
+    private JPanel textPanel;
 
-    JLabel info;
-    JPanel buttonPanel;
+    private JLabel info;
+    private JPanel buttonPanel;
 
 
     MainScreen() {
@@ -25,7 +25,6 @@ public class MainScreen extends JFrame {
         buttonPanel.setLayout(new GridLayout(0, 3, 2, 2));
         info = new JLabel("Select Calculator");
         textPanel.add(info);
-
 
         basicCalc = new JButton("Basic Calculator");
         basicCalc.addActionListener(new ActionListener() {

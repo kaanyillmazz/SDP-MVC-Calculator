@@ -13,30 +13,30 @@ public class BasicCalculator extends JFrame implements Calculator {
     private static BasicCalculator basicCalculator = null;
 
     private Container container;
-    private  JButton b1;
+    private JButton b1;
     private JButton b2;
     private JButton b3;
-    private  JButton b4;
-    private  JButton b5;
-    private  JButton b6;
+    private JButton b4;
+    private JButton b5;
+    private JButton b6;
     private JButton b7;
-    private  JButton b8;
-    private  JButton b9;
-    private  JButton zero;
-    private  JButton clr;
-    private  JButton pow2;
-    private  JButton plus;
-    private  JButton min;
-    private  JButton div;
+    private JButton b8;
+    private JButton b9;
+    private JButton zero;
+    private JButton clr;
+    private JButton pow2;
+    private JButton plus;
+    private JButton min;
+    private JButton div;
     private JButton mul;
     private JButton eq;
     private JButton chSign;
     private JButton dot;
     private JButton sqrt;
-    private  JTextField inputField;
+    private JTextField inputField;
     private JPanel inputPanel;
     private JPanel buttonPanel;
-    private  JLabel info;
+    private JLabel info;
 
     private BasicCalculator() {
         info = new JLabel();
