@@ -1,6 +1,6 @@
-package Controller.ConversionCommands.Height;
+package Model.ConversionCommands.Height;
 
-import Controller.ConversionCommands.ConversionCommand;
+import Model.ConversionCommands.ConversionCommand;
 
 public class MmToIn implements ConversionCommand {
 

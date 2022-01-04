@@ -1,6 +1,6 @@
-package Controller.ConversionCommands.Temp;
+package Model.ConversionCommands.Temp;
 
-import Controller.ConversionCommands.ConversionCommand;
+import Model.ConversionCommands.ConversionCommand;
 
 public class CToF implements ConversionCommand {
     @Override

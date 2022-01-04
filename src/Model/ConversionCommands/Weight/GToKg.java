@@ -1,6 +1,6 @@
-package Controller.ConversionCommands.Weight;
+package Model.ConversionCommands.Weight;
 
-import Controller.ConversionCommands.ConversionCommand;
+import Model.ConversionCommands.ConversionCommand;
 
 public class GToKg implements ConversionCommand {
 

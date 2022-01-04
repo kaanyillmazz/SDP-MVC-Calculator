@@ -1,7 +1,7 @@
-package Controller.ConversionCommands.Time;
+package Model.ConversionCommands.Time;
 
 
-import Controller.ConversionCommands.ConversionCommand;
+import Model.ConversionCommands.ConversionCommand;
 
 public class SecToDay implements ConversionCommand {
 

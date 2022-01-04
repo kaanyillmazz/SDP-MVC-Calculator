@@ -1,9 +1,9 @@
-package Controller.ConversionCommands;
+package Model.ConversionCommands;
 
-import Controller.ConversionCommands.Height.*;
-import Controller.ConversionCommands.Temp.*;
-import Controller.ConversionCommands.Time.*;
-import Controller.ConversionCommands.Weight.*;
+import Model.ConversionCommands.Height.*;
+import Model.ConversionCommands.Temp.*;
+import Model.ConversionCommands.Time.*;
+import Model.ConversionCommands.Weight.*;
 
 public class ConversionCommandFactory implements CommandFactory{
 
