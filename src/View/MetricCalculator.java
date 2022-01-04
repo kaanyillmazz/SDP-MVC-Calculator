@@ -9,21 +9,21 @@ public class MetricCalculator extends JFrame implements Calculator {
     //simple singleton implementation
     private static MetricCalculator metricCalculator = null;
 
-    Container cont;
-    JLabel info;
-    JLabel unit1label;
-    JLabel unit2label;
-    JLabel result;
-    JLabel equals;
-    JPanel comboBoxPanel;
-    JButton calculate;
-    JComboBox heights;
-    JComboBox weights;
-    JComboBox times;
-    JComboBox temps;
-    JTextField inputField;
-    JPanel inputPanel;
-    JPanel conversionPanel;
+    private Container cont;
+    private JLabel info;
+    private JLabel unit1label;
+    private JLabel unit2label;
+    private JLabel result;
+    private JLabel equals;
+    private JPanel comboBoxPanel;
+    private JButton calculate;
+    private JComboBox heights;
+    private JComboBox weights;
+    private JComboBox times;
+    private JComboBox temps;
+    private JTextField inputField;
+    private JPanel inputPanel;
+    private JPanel conversionPanel;
 
     private MetricCalculator() {
         cont = getContentPane();

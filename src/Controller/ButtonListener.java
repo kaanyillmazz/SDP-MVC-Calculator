@@ -102,6 +102,10 @@ public class ButtonListener implements ActionListener {
     //Run program according to current state
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
+
+        if(inputField.getText().equals(""))
+            currentState = emptyState;
+
         currentState.Execute(cmd);
         inputField.requestFocus();
     }
