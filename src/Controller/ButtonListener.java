@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class ButtonListener implements ActionListener {
     ScientificCalculatorController scientificCalculatorController;
-    JTextField tfield;
+    JTextField inputField;
     JLabel info;
 
     double first;
@@ -25,7 +25,7 @@ public class ButtonListener implements ActionListener {
 
     public ButtonListener(ScientificCalculatorController scientificCalculatorController) {
         this.scientificCalculatorController = scientificCalculatorController;
-        tfield = scientificCalculatorController.getTfield();
+        inputField = scientificCalculatorController.getInputField();
         info = scientificCalculatorController.getInfo();
         operatingState = new OperatingState(this);
         resultShownState = new ResultShownState(this);
@@ -98,12 +98,12 @@ public class ButtonListener implements ActionListener {
         this.memory = memory;
     }
 
+
+    //Run program according to current state
     public void actionPerformed(ActionEvent e) {
         String s = e.getActionCommand();
-
         currentState.Execute(s);
-
-        tfield.requestFocus();
+        inputField.requestFocus();
     }
 
 }

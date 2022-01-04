@@ -3,8 +3,11 @@ package Controller;
 import javax.swing.*;
 
 public class OperatingState implements State {
+    //this state is for when user is operating and
+    //input field does not need a reset
+
     ButtonListener buttonListener;
-    JTextField tfield;
+    JTextField inputField;
     JLabel info;
 
     boolean wasReversed;
@@ -14,7 +17,7 @@ public class OperatingState implements State {
 
     OperatingState(ButtonListener buttonListener) {
         this.buttonListener = buttonListener;
-        this.tfield = buttonListener.tfield;
+        this.inputField = buttonListener.inputField;
         this.info = buttonListener.info;
 
     }
@@ -22,51 +25,51 @@ public class OperatingState implements State {
     public void Execute(String s) {
 
         if (s.equals("1")) {
-            tfield.setText(tfield.getText() + "1");
+            inputField.setText(inputField.getText() + "1");
 
         }
         if (s.equals("2")) {
-            tfield.setText(tfield.getText() + "2");
+            inputField.setText(inputField.getText() + "2");
 
         }
         if (s.equals("3")) {
-            tfield.setText(tfield.getText() + "3");
+            inputField.setText(inputField.getText() + "3");
         }
 
         if (s.equals("4")) {
 
-            tfield.setText(tfield.getText() + "4");
+            inputField.setText(inputField.getText() + "4");
 
         }
         if (s.equals("5")) {
 
-            tfield.setText(tfield.getText() + "5");
+            inputField.setText(inputField.getText() + "5");
 
         }
         if (s.equals("6")) {
-            tfield.setText(tfield.getText() + "6");
+            inputField.setText(inputField.getText() + "6");
 
         }
         if (s.equals("7")) {
 
-            tfield.setText(tfield.getText() + "7");
+            inputField.setText(inputField.getText() + "7");
 
         }
         if (s.equals("8")) {
-            tfield.setText(tfield.getText() + "8");
+            inputField.setText(inputField.getText() + "8");
         }
         if (s.equals("9")) {
 
-            tfield.setText(tfield.getText() + "9");
+            inputField.setText(inputField.getText() + "9");
 
         }
         if (s.equals("0")) {
 
-            tfield.setText(tfield.getText() + "0");
+            inputField.setText(inputField.getText() + "0");
 
         }
         if (s.equals("AC")) {
-            tfield.setText("");
+            inputField.setText("");
             wasReversed = false;
             isDecimal = false;
 
@@ -77,180 +80,180 @@ public class OperatingState implements State {
         }
         if (s.equals("log")) {
 
-            localResult = Math.log(Double.parseDouble(tfield.getText()));
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            localResult = Math.log(Double.parseDouble(inputField.getText()));
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
         }
         if (s.equals("1/x")) {
 
-            localResult = 1 / Double.parseDouble(tfield.getText());
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            localResult = 1 / Double.parseDouble(inputField.getText());
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
         }
         if (s.equals("Exp")) {
 
-            localResult = Math.exp(Double.parseDouble(tfield.getText()));
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            localResult = Math.exp(Double.parseDouble(inputField.getText()));
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
         }
         if (s.equals("x^2")) {
 
-            localResult = Math.pow(Double.parseDouble(tfield.getText()), 2);
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            localResult = Math.pow(Double.parseDouble(inputField.getText()), 2);
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
         }
         if (s.equals("x^3")) {
 
-            localResult = Math.pow(Double.parseDouble(tfield.getText()), 3);
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            localResult = Math.pow(Double.parseDouble(inputField.getText()), 3);
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
         }
         if (s.equals("+/-")) {
             if (!wasReversed) {
-                tfield.setText("-" + tfield.getText());
+                inputField.setText("-" + inputField.getText());
                 wasReversed = true;
             } else {
-                String full = tfield.getText();
+                String full = inputField.getText();
                 String substr = full.substring(1);
-                tfield.setText(substr);
+                inputField.setText(substr);
                 wasReversed = false;
             }
         }
         if (s.equals(".")) {
             if (!isDecimal) {
-                tfield.setText(tfield.getText() + ".");
+                inputField.setText(inputField.getText() + ".");
                 isDecimal = true;
             } else {
-                tfield.setText(tfield.getText());
+                inputField.setText(inputField.getText());
             }
         }
         if (s.equals("+")) {
 
-            buttonListener.setFirst(Double.parseDouble(tfield.getText()));
-            tfield.setText("");
+            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
+            inputField.setText("");
             buttonListener.setOperation('+');
             isDecimal = false;
             wasReversed = false;
 
-            tfield.requestFocus();
+            inputField.requestFocus();
         }
         if (s.equals("-")) {
 
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setFirst(Double.parseDouble(tfield.getText()));
-            tfield.setText("");
+            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
+            inputField.setText("");
             buttonListener.setOperation('-');
 
-            tfield.requestFocus();
+            inputField.requestFocus();
         }
         if (s.equals("/")) {
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setFirst(Double.parseDouble(tfield.getText()));
+            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
             buttonListener.setOperation('/');
-            tfield.setText("");
+            inputField.setText("");
 
-            tfield.requestFocus();
+            inputField.requestFocus();
         }
         if (s.equals("*")) {
 
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setFirst(Double.parseDouble(tfield.getText()));
+            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
             buttonListener.setOperation('*');
-            tfield.setText("");
+            inputField.setText("");
 
-            tfield.requestFocus();
+            inputField.requestFocus();
         }
         if (s.equals("MC")) {
             buttonListener.setMemoryFull(false);
             buttonListener.setMemory(0);
-            tfield.setText("");
+            inputField.setText("");
             info.setText("memory clr");
         }
         if (s.equals("MR")) {
-            tfield.setText("");
-            tfield.setText(tfield.getText() + buttonListener.getMemory());
-            info.setText("memory rcl" + tfield.getText());
+            inputField.setText("");
+            inputField.setText(inputField.getText() + buttonListener.getMemory());
+            info.setText("memory rcl" + inputField.getText());
             buttonListener.setCurrentState(buttonListener.getResultShownState());
         }
         if (s.equals("M+")) {
             if (!buttonListener.isMemoryFull()) {
-                buttonListener.setMemory(Double.parseDouble(tfield.getText()));
+                buttonListener.setMemory(Double.parseDouble(inputField.getText()));
                 buttonListener.setMemoryFull(true);
-                info.setText("memory-empty-Set: " + tfield.getText());
+                info.setText("memory-empty-Set: " + inputField.getText());
             } else {
-                buttonListener.setMemory(buttonListener.getMemory() + Double.parseDouble(tfield.getText()));
+                buttonListener.setMemory(buttonListener.getMemory() + Double.parseDouble(inputField.getText()));
                 info.setText("M+: " + buttonListener.getMemory());
             }
         }
         if (s.equals("M-")) {
             if (!buttonListener.isMemoryFull()) {
-                buttonListener.setMemory(Double.parseDouble(tfield.getText()));
+                buttonListener.setMemory(Double.parseDouble(inputField.getText()));
                 buttonListener.setMemoryFull(true);
-                info.setText("memory-empty-Set: " + tfield.getText());
+                info.setText("memory-empty-Set: " + inputField.getText());
             } else {
-                buttonListener.setMemory(buttonListener.getMemory() - Double.parseDouble(tfield.getText()));
+                buttonListener.setMemory(buttonListener.getMemory() - Double.parseDouble(inputField.getText()));
                 info.setText("M-: " + buttonListener.getMemory());
 
             }
         }
         if (s.equals("MS")) {
-            buttonListener.setMemory(Double.parseDouble(tfield.getText()));
+            buttonListener.setMemory(Double.parseDouble(inputField.getText()));
             buttonListener.setMemoryFull(true);
-            info.setText("memory store: " + tfield.getText());
+            info.setText("memory store: " + inputField.getText());
         }
         if (s.equals("Sqrt")) {
-            if (tfield.getText().equals("")) {
-                tfield.setText("");
+            if (inputField.getText().equals("")) {
+                inputField.setText("");
             } else {
-                localResult = Math.sqrt(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+                localResult = Math.sqrt(Double.parseDouble(inputField.getText()));
+                inputField.setText("");
+                inputField.setText(inputField.getText() + localResult);
             }
         }
         if (s.equals("SIN")) {
 
-            double degrees = Double.parseDouble(tfield.getText());
+            double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
             localResult = Math.sin(radians);
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
         if (s.equals("COS")) {
 
-            double degrees = Double.parseDouble(tfield.getText());
+            double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
             double asquare = (1) - (Math.sin(radians) * Math.sin(radians));
             localResult = Math.sqrt(asquare);
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
         if (s.equals("TAN")) {
 
-            double degrees = Double.parseDouble(tfield.getText());
+            double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
             localResult = Math.tan(radians);
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
         if (s.equals("=")) {
-            buttonListener.setSecond(Double.parseDouble(tfield.getText()));
+            buttonListener.setSecond(Double.parseDouble(inputField.getText()));
 
 
             double first = buttonListener.getFirst();
@@ -272,8 +275,8 @@ public class OperatingState implements State {
                     result = first * second;
                     break;
             }
-            tfield.setText("");
-            tfield.setText(tfield.getText() + result);
+            inputField.setText("");
+            inputField.setText(inputField.getText() + result);
             buttonListener.setResult(result);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
@@ -281,25 +284,20 @@ public class OperatingState implements State {
         }
         if (s.equals("n!")) {
 
-            localResult = fact(Double.parseDouble(tfield.getText()));
-            tfield.setText("");
-            tfield.setText(tfield.getText() + localResult);
+            localResult = fact(Double.parseDouble(inputField.getText()));
+            inputField.setText("");
+            inputField.setText(inputField.getText() + localResult);
 
         }
-        tfield.requestFocus();
+        inputField.requestFocus();
 
     }
 
     double fact(double x) {
-        int er = 0;
-        if (x < 0) {
-            er = 20;
-            return 0;
-        }
-        double i, s = 1;
-        for (i = 2; i <= x; i += 1.0)
-            s *= i;
-        return s;
+        if (x == 0)
+            return 1;
+        else
+            return(x * fact(x-1));
     }
 
 

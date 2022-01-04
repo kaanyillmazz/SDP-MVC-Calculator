@@ -41,9 +41,3 @@ d
 4src/Controller/ConversionCommands/Weight/OzToLb.java,2\9\293c1557516ee12308bcb5761527b9f434a2f6d2
 c
 3src/Controller/ConversionCommands/Weight/GToKg.java,6\4\6454ceae81e460dd69b864b31b749b47940d9029
-M
-src/View/BasicCalculator.java,0\9\09e068d56bee6d47f15280f5449eaf70f2e0a120
-N
-src/View/MetricCalculator.java,2\4\246c14a9d198458be083bcc6d00a61a2ce6ab295
-R
-"src/View/ScientificCalculator.java,e\2\e26d3a438e097193d0c179eaac55f91fdd18abec
