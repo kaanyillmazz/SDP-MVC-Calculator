@@ -22,53 +22,53 @@ public class OperatingState implements State {
 
     }
 
-    public void Execute(String s) {
+    public void Execute(String cmd) {
 
-        if (s.equals("1")) {
+        if (cmd.equals("1")) {
             inputField.setText(inputField.getText() + "1");
 
         }
-        if (s.equals("2")) {
+        if (cmd.equals("2")) {
             inputField.setText(inputField.getText() + "2");
 
         }
-        if (s.equals("3")) {
+        if (cmd.equals("3")) {
             inputField.setText(inputField.getText() + "3");
         }
 
-        if (s.equals("4")) {
+        if (cmd.equals("4")) {
 
             inputField.setText(inputField.getText() + "4");
 
         }
-        if (s.equals("5")) {
+        if (cmd.equals("5")) {
 
             inputField.setText(inputField.getText() + "5");
 
         }
-        if (s.equals("6")) {
+        if (cmd.equals("6")) {
             inputField.setText(inputField.getText() + "6");
 
         }
-        if (s.equals("7")) {
+        if (cmd.equals("7")) {
 
             inputField.setText(inputField.getText() + "7");
 
         }
-        if (s.equals("8")) {
+        if (cmd.equals("8")) {
             inputField.setText(inputField.getText() + "8");
         }
-        if (s.equals("9")) {
+        if (cmd.equals("9")) {
 
             inputField.setText(inputField.getText() + "9");
 
         }
-        if (s.equals("0")) {
+        if (cmd.equals("0")) {
 
             inputField.setText(inputField.getText() + "0");
 
         }
-        if (s.equals("AC")) {
+        if (cmd.equals("AC")) {
             inputField.setText("");
             wasReversed = false;
             isDecimal = false;
@@ -78,42 +78,42 @@ public class OperatingState implements State {
             buttonListener.setSecond(0);
             buttonListener.setResult(0);
         }
-        if (s.equals("log")) {
+        if (cmd.equals("log")) {
 
             localResult = Math.log(Double.parseDouble(inputField.getText()));
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
 
         }
-        if (s.equals("1/x")) {
+        if (cmd.equals("1/x")) {
 
             localResult = 1 / Double.parseDouble(inputField.getText());
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
 
         }
-        if (s.equals("Exp")) {
+        if (cmd.equals("Exp")) {
 
             localResult = Math.exp(Double.parseDouble(inputField.getText()));
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
 
         }
-        if (s.equals("x^2")) {
+        if (cmd.equals("x^2")) {
 
             localResult = Math.pow(Double.parseDouble(inputField.getText()), 2);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
 
         }
-        if (s.equals("x^3")) {
+        if (cmd.equals("x^3")) {
 
             localResult = Math.pow(Double.parseDouble(inputField.getText()), 3);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
 
         }
-        if (s.equals("+/-")) {
+        if (cmd.equals("+/-")) {
             if (!wasReversed) {
                 inputField.setText("-" + inputField.getText());
                 wasReversed = true;
@@ -124,7 +124,7 @@ public class OperatingState implements State {
                 wasReversed = false;
             }
         }
-        if (s.equals(".")) {
+        if (cmd.equals(".")) {
             if (!isDecimal) {
                 inputField.setText(inputField.getText() + ".");
                 isDecimal = true;
@@ -132,7 +132,7 @@ public class OperatingState implements State {
                 inputField.setText(inputField.getText());
             }
         }
-        if (s.equals("+")) {
+        if (cmd.equals("+")) {
 
             buttonListener.setFirst(Double.parseDouble(inputField.getText()));
             inputField.setText("");
@@ -142,7 +142,7 @@ public class OperatingState implements State {
 
             inputField.requestFocus();
         }
-        if (s.equals("-")) {
+        if (cmd.equals("-")) {
 
             wasReversed = false;
             isDecimal = false;
@@ -152,7 +152,7 @@ public class OperatingState implements State {
 
             inputField.requestFocus();
         }
-        if (s.equals("/")) {
+        if (cmd.equals("/")) {
             wasReversed = false;
             isDecimal = false;
             buttonListener.setFirst(Double.parseDouble(inputField.getText()));
@@ -161,7 +161,7 @@ public class OperatingState implements State {
 
             inputField.requestFocus();
         }
-        if (s.equals("*")) {
+        if (cmd.equals("*")) {
 
             wasReversed = false;
             isDecimal = false;
@@ -171,19 +171,19 @@ public class OperatingState implements State {
 
             inputField.requestFocus();
         }
-        if (s.equals("MC")) {
+        if (cmd.equals("MC")) {
             buttonListener.setMemoryFull(false);
             buttonListener.setMemory(0);
             inputField.setText("");
             info.setText("memory clr");
         }
-        if (s.equals("MR")) {
+        if (cmd.equals("MR")) {
             inputField.setText("");
             inputField.setText(inputField.getText() + buttonListener.getMemory());
             info.setText("memory rcl" + inputField.getText());
             buttonListener.setCurrentState(buttonListener.getResultShownState());
         }
-        if (s.equals("M+")) {
+        if (cmd.equals("M+")) {
             if (!buttonListener.isMemoryFull()) {
                 buttonListener.setMemory(Double.parseDouble(inputField.getText()));
                 buttonListener.setMemoryFull(true);
@@ -193,7 +193,7 @@ public class OperatingState implements State {
                 info.setText("M+: " + buttonListener.getMemory());
             }
         }
-        if (s.equals("M-")) {
+        if (cmd.equals("M-")) {
             if (!buttonListener.isMemoryFull()) {
                 buttonListener.setMemory(Double.parseDouble(inputField.getText()));
                 buttonListener.setMemoryFull(true);
@@ -204,12 +204,12 @@ public class OperatingState implements State {
 
             }
         }
-        if (s.equals("MS")) {
+        if (cmd.equals("MS")) {
             buttonListener.setMemory(Double.parseDouble(inputField.getText()));
             buttonListener.setMemoryFull(true);
             info.setText("memory store: " + inputField.getText());
         }
-        if (s.equals("Sqrt")) {
+        if (cmd.equals("Sqrt")) {
             if (inputField.getText().equals("")) {
                 inputField.setText("");
             } else {
@@ -218,7 +218,7 @@ public class OperatingState implements State {
                 inputField.setText(inputField.getText() + localResult);
             }
         }
-        if (s.equals("SIN")) {
+        if (cmd.equals("SIN")) {
 
             double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
@@ -229,7 +229,7 @@ public class OperatingState implements State {
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
-        if (s.equals("COS")) {
+        if (cmd.equals("COS")) {
 
             double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
@@ -241,7 +241,7 @@ public class OperatingState implements State {
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
-        if (s.equals("TAN")) {
+        if (cmd.equals("TAN")) {
 
             double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
@@ -252,7 +252,7 @@ public class OperatingState implements State {
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
-        if (s.equals("=")) {
+        if (cmd.equals("=")) {
             buttonListener.setSecond(Double.parseDouble(inputField.getText()));
 
 
@@ -282,7 +282,7 @@ public class OperatingState implements State {
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
-        if (s.equals("n!")) {
+        if (cmd.equals("n!")) {
 
             localResult = fact(Double.parseDouble(inputField.getText()));
             inputField.setText("");

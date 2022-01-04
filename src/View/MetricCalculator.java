@@ -6,7 +6,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MetricCalculator extends JFrame implements Calculator {
+    //simple singleton implementation
     private static MetricCalculator metricCalculator = null;
+
     Container cont;
     JLabel info;
     JLabel unit1label;
@@ -79,6 +81,7 @@ public class MetricCalculator extends JFrame implements Calculator {
         cont.add("South", conversionPanel);
     }
 
+    //simple singleton implementation
     public static MetricCalculator getInstance() {
         if (metricCalculator == null)
             metricCalculator = new MetricCalculator();

@@ -38,7 +38,7 @@ public class MetricButtonsListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (metricCalculatorController.getOperationState() == 2) {
-            String s = unit1label.getText() + "To" + unit2label.getText();
+            String unitGetter = unit1label.getText() + "To" + unit2label.getText();
             ConversionCommand command;
             double resultHolder = 0;
             //Check if user provided numbers
@@ -56,11 +56,11 @@ public class MetricButtonsListener implements ActionListener {
             //Check if the user requested one of the available conversion classes
             //if not check if the user can use one of the unExecute commands
             try {
-                command = conversionCommandFactory.Create(ConversionType.valueOf(s));
+                command = conversionCommandFactory.Create(ConversionType.valueOf(unitGetter));
                 resultHolder = command.Execute(Double.parseDouble(inputField.getText()));
             } catch (IllegalArgumentException i) {
-                s = unit2label.getText() + "To" + unit1label.getText();
-                command = conversionCommandFactory.Create(ConversionType.valueOf(s));
+                unitGetter = unit2label.getText() + "To" + unit1label.getText();
+                command = conversionCommandFactory.Create(ConversionType.valueOf(unitGetter));
                 resultHolder = command.unExecute(Double.parseDouble(inputField.getText()));
             }
             //set the result

@@ -9,7 +9,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class BasicCalculator extends JFrame implements Calculator {
+    //simple singleton implementation
     private static BasicCalculator basicCalculator = null;
+
     Container container;
     JButton b1;
     JButton b2;
@@ -148,6 +150,8 @@ public class BasicCalculator extends JFrame implements Calculator {
         container.add("North", inputPanel);
     }
 
+
+    //simple singleton implementation
     public static BasicCalculator getInstance() {
         if (basicCalculator == null)
             basicCalculator = new BasicCalculator();

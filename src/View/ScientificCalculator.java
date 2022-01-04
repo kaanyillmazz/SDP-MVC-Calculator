@@ -8,7 +8,9 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class ScientificCalculator extends JFrame implements Calculator {
+    //simple singleton implementation
     private static ScientificCalculator scientificCalculator = null;
+
     Container container;
     JButton b1;
     JButton b2;
@@ -217,6 +219,7 @@ public class ScientificCalculator extends JFrame implements Calculator {
     }
 
 
+    //simple singleton implementation
     public static ScientificCalculator getInstance() {
         if (scientificCalculator == null)
             scientificCalculator = new ScientificCalculator();

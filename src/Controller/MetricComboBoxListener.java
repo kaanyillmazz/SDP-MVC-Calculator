@@ -41,19 +41,19 @@ public class MetricComboBoxListener implements ActionListener {
         ((JComboBox) e.getSource()).setEnabled(true);
 
         //get the unit name
-        String s = ((String) ((JComboBox) e.getSource()).getSelectedItem());
+        String unitGetter = ((String) ((JComboBox) e.getSource()).getSelectedItem());
 
         //check operation states
         //0 state no unit selected
         if (metricCalculatorController.getOperationState() == 0) {
             result.setText(" ");
-            unit1label.setText(s);
+            unit1label.setText(unitGetter);
             metricCalculatorController.setOperationState(1);
             info.setText("select second unit");
 
             //1 state first unit is selected
         } else if (metricCalculatorController.getOperationState() == 1) {
-            if (unit1label.getText().equals(s)) {
+            if (unit1label.getText().equals(unitGetter)) {
 
                 //if the user selects same units make a warning
                 JDialog warning = new JDialog();
@@ -64,7 +64,7 @@ public class MetricComboBoxListener implements ActionListener {
                 warning.setLocationRelativeTo(null);
                 warning.pack();
             } else {
-                unit2label.setText(s);
+                unit2label.setText(unitGetter);
                 metricCalculatorController.setOperationState(2);
                 info.setText("convert");
             }
