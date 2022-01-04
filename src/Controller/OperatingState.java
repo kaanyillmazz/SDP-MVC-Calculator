@@ -6,7 +6,7 @@ import javax.swing.*;
 //input field does not need a reset
 public class OperatingState implements State {
 
-    ButtonListener buttonListener;
+    CalculatorButtonListener calculatorButtonListener;
     JTextField inputField;
     JLabel info;
 
@@ -15,10 +15,10 @@ public class OperatingState implements State {
     double localResult;
 
 
-    OperatingState(ButtonListener buttonListener) {
-        this.buttonListener = buttonListener;
-        this.inputField = buttonListener.inputField;
-        this.info = buttonListener.info;
+    OperatingState(CalculatorButtonListener calculatorButtonListener) {
+        this.calculatorButtonListener = calculatorButtonListener;
+        this.inputField = calculatorButtonListener.inputField;
+        this.info = calculatorButtonListener.info;
 
     }
 
@@ -57,10 +57,10 @@ public class OperatingState implements State {
             inputField.setText("");
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setCurrentState(buttonListener.getEmptyState());
-            buttonListener.setFirst(0);
-            buttonListener.setSecond(0);
-            buttonListener.setResult(0);
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getEmptyState());
+            calculatorButtonListener.setFirst(0);
+            calculatorButtonListener.setSecond(0);
+            calculatorButtonListener.setResult(0);
         }
         if (cmd.equals("log")) {
             localResult = Math.log(Double.parseDouble(inputField.getText()));
@@ -111,9 +111,9 @@ public class OperatingState implements State {
             }
         }
         if (cmd.equals("+")) {
-            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
+            calculatorButtonListener.setFirst(Double.parseDouble(inputField.getText()));
             inputField.setText("");
-            buttonListener.setOperation('+');
+            calculatorButtonListener.setOperation('+');
             isDecimal = false;
             wasReversed = false;
             inputField.requestFocus();
@@ -121,64 +121,64 @@ public class OperatingState implements State {
         if (cmd.equals("-")) {
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
+            calculatorButtonListener.setFirst(Double.parseDouble(inputField.getText()));
             inputField.setText("");
-            buttonListener.setOperation('-');
+            calculatorButtonListener.setOperation('-');
             inputField.requestFocus();
         }
         if (cmd.equals("/")) {
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
-            buttonListener.setOperation('/');
+            calculatorButtonListener.setFirst(Double.parseDouble(inputField.getText()));
+            calculatorButtonListener.setOperation('/');
             inputField.setText("");
             inputField.requestFocus();
         }
         if (cmd.equals("*")) {
             wasReversed = false;
             isDecimal = false;
-            buttonListener.setFirst(Double.parseDouble(inputField.getText()));
-            buttonListener.setOperation('*');
+            calculatorButtonListener.setFirst(Double.parseDouble(inputField.getText()));
+            calculatorButtonListener.setOperation('*');
             inputField.setText("");
             inputField.requestFocus();
         }
         if (cmd.equals("MC")) {
-            buttonListener.setMemoryFull(false);
-            buttonListener.setMemory(0);
+            calculatorButtonListener.setMemoryFull(false);
+            calculatorButtonListener.setMemory(0);
             inputField.setText("");
             info.setText("memory clr");
         }
         if (cmd.equals("MR")) {
             inputField.setText("");
-            inputField.setText(inputField.getText() + buttonListener.getMemory());
+            inputField.setText(inputField.getText() + calculatorButtonListener.getMemory());
             info.setText("memory recall: " + inputField.getText());
-            buttonListener.setCurrentState(buttonListener.getResultShownState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
         }
         if (cmd.equals("M+")) {
             //check if the memory is empty
-            if (!buttonListener.isMemoryFull()) {
-                buttonListener.setMemory(Double.parseDouble(inputField.getText()));
-                buttonListener.setMemoryFull(true);
+            if (!calculatorButtonListener.isMemoryFull()) {
+                calculatorButtonListener.setMemory(Double.parseDouble(inputField.getText()));
+                calculatorButtonListener.setMemoryFull(true);
                 info.setText("memory-empty-Set: " + inputField.getText());
             } else {
-                buttonListener.setMemory(buttonListener.getMemory() + Double.parseDouble(inputField.getText()));
-                info.setText("M+: " + buttonListener.getMemory());
+                calculatorButtonListener.setMemory(calculatorButtonListener.getMemory() + Double.parseDouble(inputField.getText()));
+                info.setText("M+: " + calculatorButtonListener.getMemory());
             }
         }
         if (cmd.equals("M-")) {
             //check if the memory is empty
-            if (!buttonListener.isMemoryFull()) {
-                buttonListener.setMemory(Double.parseDouble(inputField.getText()));
-                buttonListener.setMemoryFull(true);
+            if (!calculatorButtonListener.isMemoryFull()) {
+                calculatorButtonListener.setMemory(Double.parseDouble(inputField.getText()));
+                calculatorButtonListener.setMemoryFull(true);
                 info.setText("memory-empty-Set: " + inputField.getText());
             } else {
-                buttonListener.setMemory(buttonListener.getMemory() - Double.parseDouble(inputField.getText()));
-                info.setText("M-: " + buttonListener.getMemory());
+                calculatorButtonListener.setMemory(calculatorButtonListener.getMemory() - Double.parseDouble(inputField.getText()));
+                info.setText("M-: " + calculatorButtonListener.getMemory());
             }
         }
         if (cmd.equals("MS")) {
-            buttonListener.setMemory(Double.parseDouble(inputField.getText()));
-            buttonListener.setMemoryFull(true);
+            calculatorButtonListener.setMemory(Double.parseDouble(inputField.getText()));
+            calculatorButtonListener.setMemoryFull(true);
             info.setText("memory store: " + inputField.getText());
         }
         if (cmd.equals("Sqrt")) {
@@ -197,7 +197,7 @@ public class OperatingState implements State {
             localResult = Math.sin(radians);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
-            buttonListener.setCurrentState(buttonListener.getResultShownState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
         }
         if (cmd.equals("COS")) {
 
@@ -207,7 +207,7 @@ public class OperatingState implements State {
             localResult = Math.sqrt(asquare);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
-            buttonListener.setCurrentState(buttonListener.getResultShownState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
 
         }
         if (cmd.equals("TAN")) {
@@ -216,16 +216,16 @@ public class OperatingState implements State {
             localResult = Math.tan(radians);
             inputField.setText("");
             inputField.setText(inputField.getText() + localResult);
-            buttonListener.setCurrentState(buttonListener.getResultShownState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
         }
         if (cmd.equals("=")) {
-            buttonListener.setSecond(Double.parseDouble(inputField.getText()));
+            calculatorButtonListener.setSecond(Double.parseDouble(inputField.getText()));
 
-            double first = buttonListener.getFirst();
-            double second = buttonListener.getSecond();
+            double first = calculatorButtonListener.getFirst();
+            double second = calculatorButtonListener.getSecond();
             double result = 0;
 
-            switch (buttonListener.getOperation()) {
+            switch (calculatorButtonListener.getOperation()) {
                 case '+':
                     result = first + second;
                     break;
@@ -241,8 +241,8 @@ public class OperatingState implements State {
             }
             inputField.setText("");
             inputField.setText(inputField.getText() + result);
-            buttonListener.setResult(result);
-            buttonListener.setCurrentState(buttonListener.getResultShownState());
+            calculatorButtonListener.setResult(result);
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
         }
         if (cmd.equals("n!")) {
             localResult = fact(Double.parseDouble(inputField.getText()));

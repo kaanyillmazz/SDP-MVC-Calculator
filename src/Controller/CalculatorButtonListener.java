@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ButtonListener implements ActionListener {
+public class CalculatorButtonListener implements ActionListener {
     ScientificCalculatorController scientificCalculatorController;
     JTextField inputField;
     JLabel info;
@@ -23,7 +23,7 @@ public class ButtonListener implements ActionListener {
     EmptyState emptyState;
 
 
-    public ButtonListener(ScientificCalculatorController scientificCalculatorController) {
+    public CalculatorButtonListener(ScientificCalculatorController scientificCalculatorController) {
         this.scientificCalculatorController = scientificCalculatorController;
         inputField = scientificCalculatorController.getInputField();
         info = scientificCalculatorController.getInfo();

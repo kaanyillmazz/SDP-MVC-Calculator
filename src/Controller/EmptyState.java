@@ -4,61 +4,61 @@ import javax.swing.*;
 //this state is for when input field is empty
 public class EmptyState implements State {
 
-    ButtonListener buttonListener;
+    CalculatorButtonListener calculatorButtonListener;
     JTextField inputField;
     JLabel info;
 
-    EmptyState(ButtonListener buttonListener) {
-        this.buttonListener = buttonListener;
-        this.inputField = buttonListener.inputField;
-        this.info = buttonListener.info;
+    EmptyState(CalculatorButtonListener calculatorButtonListener) {
+        this.calculatorButtonListener = calculatorButtonListener;
+        this.inputField = calculatorButtonListener.inputField;
+        this.info = calculatorButtonListener.info;
     }
 
     public void Execute(String cmd) {
         if (cmd.equals("1")) {
             inputField.setText(inputField.getText() + "1");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("2")) {
             inputField.setText(inputField.getText() + "2");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("3")) {
             inputField.setText(inputField.getText() + "3");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("4")) {
             inputField.setText(inputField.getText() + "4");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("5")) {
             inputField.setText(inputField.getText() + "5");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("6")) {
             inputField.setText(inputField.getText() + "6");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("7")) {
             inputField.setText(inputField.getText() + "7");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("8")) {
             inputField.setText(inputField.getText() + "8");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("9")) {
             inputField.setText(inputField.getText() + "9");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("0")) {
             inputField.setText(inputField.getText() + "0");
-            buttonListener.setCurrentState(buttonListener.getOperatingState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getOperatingState());
         }
         if (cmd.equals("AC")) {
-            buttonListener.setFirst(0);
-            buttonListener.setSecond(0);
-            buttonListener.setResult(0);
+            calculatorButtonListener.setFirst(0);
+            calculatorButtonListener.setSecond(0);
+            calculatorButtonListener.setResult(0);
             inputField.setText("");
         }
         if (cmd.equals("log")) {
@@ -85,39 +85,39 @@ public class EmptyState implements State {
         }
         if (cmd.equals("+")) {
             inputField.setText("");
-            buttonListener.setFirst(0);
-            buttonListener.setOperation('+');
+            calculatorButtonListener.setFirst(0);
+            calculatorButtonListener.setOperation('+');
             inputField.requestFocus();
         }
         if (cmd.equals("-")) {
             inputField.setText("");
-            buttonListener.setFirst(0);
-            buttonListener.setOperation('-');
+            calculatorButtonListener.setFirst(0);
+            calculatorButtonListener.setOperation('-');
             inputField.requestFocus();
         }
         if (cmd.equals("/")) {
             inputField.setText("");
-            buttonListener.setFirst(1);
-            buttonListener.setOperation('/');
+            calculatorButtonListener.setFirst(1);
+            calculatorButtonListener.setOperation('/');
             inputField.requestFocus();
         }
         if (cmd.equals("*")) {
             inputField.setText("");
-            buttonListener.setFirst(1);
-            buttonListener.setOperation('*');
+            calculatorButtonListener.setFirst(1);
+            calculatorButtonListener.setOperation('*');
             inputField.requestFocus();
         }
         if (cmd.equals("MC")) {
-            buttonListener.setMemoryFull(false);
-            buttonListener.setMemory(0);
+            calculatorButtonListener.setMemoryFull(false);
+            calculatorButtonListener.setMemory(0);
             inputField.setText("");
             info.setText("memory clr");
         }
         if (cmd.equals("MR")) {
             inputField.setText("");
-            inputField.setText(inputField.getText() + buttonListener.getMemory());
+            inputField.setText(inputField.getText() + calculatorButtonListener.getMemory());
             info.setText("memory recall: " + inputField.getText());
-            buttonListener.setCurrentState(buttonListener.getResultShownState());
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
         }
         if (cmd.equals("M+")) {
             //you can't add nothing to memory variable
