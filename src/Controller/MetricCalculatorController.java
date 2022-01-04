@@ -15,8 +15,13 @@ public class MetricCalculatorController {
     JComboBox jc1;
     JComboBox jc2;
     JComboBox jc3;
-            JComboBox jc4;
-            JLabel info;
+    JComboBox jc4;
+    JLabel info;
+
+    //operations state
+    //0 no units
+    //1 first unit selected
+    //2 second unit selected
     int operationState;
 
    public MetricCalculatorController(MetricCalculator metricCalculator, JLabel unit1label, JLabel unit2label,JLabel info, JTextField inputField, JLabel result, JComboBox jc1, JComboBox jc2, JComboBox jc3, JComboBox jc4) {

@@ -1,8 +1,8 @@
 package Controller;
 
-import Controller.ConversionCommands.ConversionCommand;
-import Controller.ConversionCommands.ConversionCommandFactory;
-import Controller.ConversionCommands.ConversionType;
+import Model.ConversionCommands.ConversionCommand;
+import Model.ConversionCommands.ConversionCommandFactory;
+import Model.ConversionCommands.ConversionType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -40,6 +40,20 @@ public class MetricButtonsListener implements ActionListener {
             String s = unit1label.getText() + "To" + unit2label.getText();
             ConversionCommand command;
             double resultHolder = 0;
+           //Check if user provided numbers
+            try {
+                Double.parseDouble(inputField.getText());
+            } catch (Exception asd) {
+                JDialog warning = new JDialog();
+                JLabel warn = new JLabel("Please Enter Numbers!");
+                warning.setTitle("Warning!");
+                warning.add(warn);
+                warning.setVisible(true);
+                warning.setLocationRelativeTo(null);
+                warning.pack();
+            }
+            //Check if the user requested one of the available conversion classes
+            //if not check if the user can use one of the unExecute commands
             try {
                 command = conversionCommandFactory.Create(ConversionType.valueOf(s));
                 resultHolder = command.Execute(Double.parseDouble(inputField.getText()));
@@ -48,14 +62,16 @@ public class MetricButtonsListener implements ActionListener {
                 command = conversionCommandFactory.Create(ConversionType.valueOf(s));
                 resultHolder = command.unExecute(Double.parseDouble(inputField.getText()));
             }
+            //set the result
             result.setText(String.valueOf(resultHolder));
+            //make buttons available for next conversion
             jc1.setEnabled(true);
             jc2.setEnabled(true);
             jc3.setEnabled(true);
             jc4.setEnabled(true);
+
+            //set conversion state to nothing selected
             info.setText("select first unit");
-
-
             metricCalculatorController.setOperationState(0);
         }
 
