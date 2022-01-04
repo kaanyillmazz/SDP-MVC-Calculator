@@ -5,7 +5,7 @@ import Model.ConversionCommands.Temp.*;
 import Model.ConversionCommands.Time.*;
 import Model.ConversionCommands.Weight.*;
 
-public class ConversionCommandFactory implements CommandFactory{
+public class ConversionCommandFactory implements CommandFactory {
 
 
     @Override

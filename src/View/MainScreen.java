@@ -22,7 +22,7 @@ public class MainScreen extends JFrame {
         container.setLayout(new BorderLayout());
         textPanel = new JPanel();
         buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(0, 3,2,2 ));
+        buttonPanel.setLayout(new GridLayout(0, 3, 2, 2));
         info = new JLabel("Select Calculator");
         textPanel.add(info);
 
@@ -47,7 +47,7 @@ public class MainScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ScientificCalculator f = ScientificCalculator.getInstance();
                 f.setTitle("Scientific Calculator");
-                f.setPreferredSize(new Dimension(300,430));
+                f.setPreferredSize(new Dimension(300, 430));
                 f.pack();
                 f.setVisible(true);
                 f.setLocationRelativeTo(null);
@@ -63,7 +63,7 @@ public class MainScreen extends JFrame {
                 MetricCalculator f = MetricCalculator.getInstance();
                 f.setTitle("Metric Calculator");
                 //f.setLayout(new GridLayout());
-                f.setPreferredSize(new Dimension(600,150));
+                f.setPreferredSize(new Dimension(600, 150));
                 f.pack();
                 f.setVisible(true);
                 f.setLocationRelativeTo(null);
@@ -75,7 +75,6 @@ public class MainScreen extends JFrame {
         container.add("North", textPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
 
 
     public static void main(String args[]) {

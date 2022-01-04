@@ -17,7 +17,6 @@ public class ButtonListener implements ActionListener {
     boolean memoryFull;
 
 
-
     State currentState;
     OperatingState operatingState;
     ResultShownState resultShownState;

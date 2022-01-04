@@ -5,7 +5,6 @@ import View.MetricCalculator;
 import javax.swing.*;
 
 
-
 public class MetricCalculatorController {
     JLabel unit1label;
     JLabel unit2label;
@@ -24,7 +23,7 @@ public class MetricCalculatorController {
     //2 second unit selected
     int operationState;
 
-   public MetricCalculatorController(MetricCalculator metricCalculator, JLabel unit1label, JLabel unit2label,JLabel info, JTextField inputField, JLabel result, JComboBox jc1, JComboBox jc2, JComboBox jc3, JComboBox jc4) {
+    public MetricCalculatorController(MetricCalculator metricCalculator, JLabel unit1label, JLabel unit2label, JLabel info, JTextField inputField, JLabel result, JComboBox jc1, JComboBox jc2, JComboBox jc3, JComboBox jc4) {
         this.metricCalculator = metricCalculator;
         this.unit1label = unit1label;
         this.unit2label = unit2label;

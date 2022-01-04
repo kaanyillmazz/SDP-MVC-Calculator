@@ -2,7 +2,7 @@ package Controller;
 
 import javax.swing.*;
 
-public class OperatingState implements State{
+public class OperatingState implements State {
     ButtonListener buttonListener;
     JTextField tfield;
     JLabel info;
@@ -12,27 +12,25 @@ public class OperatingState implements State{
     double localResult;
 
 
-
-
-
     OperatingState(ButtonListener buttonListener) {
         this.buttonListener = buttonListener;
         this.tfield = buttonListener.tfield;
         this.info = buttonListener.info;
 
     }
+
     public void Execute(String s) {
 
         if (s.equals("1")) {
-                tfield.setText(tfield.getText() + "1");
+            tfield.setText(tfield.getText() + "1");
 
         }
         if (s.equals("2")) {
-                tfield.setText(tfield.getText() + "2");
+            tfield.setText(tfield.getText() + "2");
 
         }
         if (s.equals("3")) {
-                tfield.setText(tfield.getText() + "3");
+            tfield.setText(tfield.getText() + "3");
         }
 
         if (s.equals("4")) {
@@ -42,7 +40,7 @@ public class OperatingState implements State{
         }
         if (s.equals("5")) {
 
-                tfield.setText(tfield.getText() + "5");
+            tfield.setText(tfield.getText() + "5");
 
         }
         if (s.equals("6")) {
@@ -51,20 +49,20 @@ public class OperatingState implements State{
         }
         if (s.equals("7")) {
 
-                tfield.setText(tfield.getText() + "7");
+            tfield.setText(tfield.getText() + "7");
 
         }
         if (s.equals("8")) {
-                tfield.setText(tfield.getText() + "8");
+            tfield.setText(tfield.getText() + "8");
         }
         if (s.equals("9")) {
 
-                tfield.setText(tfield.getText() + "9");
+            tfield.setText(tfield.getText() + "9");
 
         }
         if (s.equals("0")) {
 
-                tfield.setText(tfield.getText() + "0");
+            tfield.setText(tfield.getText() + "0");
 
         }
         if (s.equals("AC")) {
@@ -79,37 +77,37 @@ public class OperatingState implements State{
         }
         if (s.equals("log")) {
 
-                localResult = Math.log(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.log(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("1/x")) {
 
-                localResult = 1 / Double.parseDouble(tfield.getText());
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = 1 / Double.parseDouble(tfield.getText());
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("Exp")) {
 
-                localResult = Math.exp(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.exp(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("x^2")) {
 
-                localResult = Math.pow(Double.parseDouble(tfield.getText()), 2);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.pow(Double.parseDouble(tfield.getText()), 2);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("x^3")) {
 
-                localResult = Math.pow(Double.parseDouble(tfield.getText()), 3);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.pow(Double.parseDouble(tfield.getText()), 3);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("+/-")) {
@@ -133,8 +131,8 @@ public class OperatingState implements State{
         }
         if (s.equals("+")) {
 
-                buttonListener.setFirst(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
+            buttonListener.setFirst(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
             buttonListener.setOperation('+');
             isDecimal = false;
             wasReversed = false;
@@ -156,7 +154,7 @@ public class OperatingState implements State{
             isDecimal = false;
             buttonListener.setFirst(Double.parseDouble(tfield.getText()));
             buttonListener.setOperation('/');
-                tfield.setText("");
+            tfield.setText("");
 
             tfield.requestFocus();
         }
@@ -166,7 +164,7 @@ public class OperatingState implements State{
             isDecimal = false;
             buttonListener.setFirst(Double.parseDouble(tfield.getText()));
             buttonListener.setOperation('*');
-                tfield.setText("");
+            tfield.setText("");
 
             tfield.requestFocus();
         }
@@ -219,34 +217,34 @@ public class OperatingState implements State{
         }
         if (s.equals("SIN")) {
 
-                double degrees = Double.parseDouble(tfield.getText());
-                double radians = Math.toRadians(degrees);
-                localResult = Math.sin(radians);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            double degrees = Double.parseDouble(tfield.getText());
+            double radians = Math.toRadians(degrees);
+            localResult = Math.sin(radians);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
-                buttonListener.setCurrentState(buttonListener.getResultShownState());
+            buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
         if (s.equals("COS")) {
 
-                double degrees = Double.parseDouble(tfield.getText());
-                double radians = Math.toRadians(degrees);
-                double asquare = (1) - (Math.sin(radians)*Math.sin(radians) );
-                localResult = Math.sqrt(asquare);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            double degrees = Double.parseDouble(tfield.getText());
+            double radians = Math.toRadians(degrees);
+            double asquare = (1) - (Math.sin(radians) * Math.sin(radians));
+            localResult = Math.sqrt(asquare);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
         if (s.equals("TAN")) {
 
-                double degrees = Double.parseDouble(tfield.getText());
-                double radians = Math.toRadians(degrees);
-                localResult = Math.tan(radians);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            double degrees = Double.parseDouble(tfield.getText());
+            double radians = Math.toRadians(degrees);
+            localResult = Math.tan(radians);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
@@ -260,37 +258,38 @@ public class OperatingState implements State{
 
             double result = 0;
 
-                switch (buttonListener.getOperation()) {
-                    case '+':
-                        result = first + second;
-                        break;
-                    case '-':
-                        result = first - second;
-                        break;
-                    case '/':
-                        result = first / second;
-                        break;
-                    case '*':
-                        result = first * second;
-                        break;
-                }
-                tfield.setText("");
-                tfield.setText(tfield.getText() + result);
-                buttonListener.setResult(result);
+            switch (buttonListener.getOperation()) {
+                case '+':
+                    result = first + second;
+                    break;
+                case '-':
+                    result = first - second;
+                    break;
+                case '/':
+                    result = first / second;
+                    break;
+                case '*':
+                    result = first * second;
+                    break;
+            }
+            tfield.setText("");
+            tfield.setText(tfield.getText() + result);
+            buttonListener.setResult(result);
 
             buttonListener.setCurrentState(buttonListener.getResultShownState());
 
         }
         if (s.equals("n!")) {
 
-                localResult = fact(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = fact(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         tfield.requestFocus();
 
     }
+
     double fact(double x) {
         int er = 0;
         if (x < 0) {

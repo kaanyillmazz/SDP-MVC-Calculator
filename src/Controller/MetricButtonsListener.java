@@ -21,7 +21,7 @@ public class MetricButtonsListener implements ActionListener {
     JLabel info;
     ConversionCommandFactory conversionCommandFactory;
 
-    public MetricButtonsListener (MetricCalculatorController metricCalculatorController) {
+    public MetricButtonsListener(MetricCalculatorController metricCalculatorController) {
         this.metricCalculatorController = metricCalculatorController;
         unit1label = metricCalculatorController.getUnit1label();
         unit2label = metricCalculatorController.getUnit2label();
@@ -34,13 +34,14 @@ public class MetricButtonsListener implements ActionListener {
         jc3 = metricCalculatorController.getJc3();
         jc4 = metricCalculatorController.getJc4();
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (metricCalculatorController.getOperationState() == 2) {
             String s = unit1label.getText() + "To" + unit2label.getText();
             ConversionCommand command;
             double resultHolder = 0;
-           //Check if user provided numbers
+            //Check if user provided numbers
             try {
                 Double.parseDouble(inputField.getText());
             } catch (Exception asd) {

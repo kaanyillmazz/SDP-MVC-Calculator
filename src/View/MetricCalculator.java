@@ -1,6 +1,7 @@
 package View;
 
 import Controller.*;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -22,14 +23,14 @@ public class MetricCalculator extends JFrame implements Calculator {
     JPanel inputPanel;
     JPanel conversionPanel;
 
-    private MetricCalculator () {
+    private MetricCalculator() {
         cont = getContentPane();
         cont.setLayout(new BorderLayout());
         inputPanel = new JPanel();
         conversionPanel = new JPanel();
         inputField = new JTextField(13);
         comboBoxPanel = new JPanel();
-        comboBoxPanel.setLayout(new GridLayout(0, 4,2,2 ));
+        comboBoxPanel.setLayout(new GridLayout(0, 4, 2, 2));
         info = new JLabel("Select First Unit");
         unit1label = new JLabel(" ");
         unit2label = new JLabel(" ");
@@ -38,10 +39,10 @@ public class MetricCalculator extends JFrame implements Calculator {
         result = new JLabel(" ");
 
 
-        String[] heightUnitList = {"Mm","Cm","In","Ft"};
-        String[] weightUnitList = {"G","Oz","Kg","Lb"};
-        String[] timeUnitList = {"Sec","Min","Hr","Day"};
-        String[] tempUnitList = {"C","F","K"};
+        String[] heightUnitList = {"Mm", "Cm", "In", "Ft"};
+        String[] weightUnitList = {"G", "Oz", "Kg", "Lb"};
+        String[] timeUnitList = {"Sec", "Min", "Hr", "Day"};
+        String[] tempUnitList = {"C", "F", "K"};
 
         heights = new JComboBox(heightUnitList);
         weights = new JComboBox(weightUnitList);
@@ -49,7 +50,7 @@ public class MetricCalculator extends JFrame implements Calculator {
         temps = new JComboBox(tempUnitList);
 
 
-        MetricCalculatorController metricCalculatorController = new MetricCalculatorController(this, unit1label, unit2label, info,inputField, result, heights,weights,times,temps);
+        MetricCalculatorController metricCalculatorController = new MetricCalculatorController(this, unit1label, unit2label, info, inputField, result, heights, weights, times, temps);
         MetricComboBoxListener metricComboBoxListener = new MetricComboBoxListener(metricCalculatorController);
         MetricButtonsListener metricButtonsListener = new MetricButtonsListener(metricCalculatorController);
 

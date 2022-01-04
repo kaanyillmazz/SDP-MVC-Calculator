@@ -12,13 +12,13 @@ public class ResultShownState implements State {
     double localResult;
 
 
-
     ResultShownState(ButtonListener buttonListener) {
         this.buttonListener = buttonListener;
         this.tfield = buttonListener.tfield;
         this.info = buttonListener.info;
 
     }
+
     public void Execute(String s) {
 
         if (s.equals("1")) {
@@ -91,33 +91,33 @@ public class ResultShownState implements State {
             buttonListener.setResult(0);
         }
         if (s.equals("log")) {
-                localResult = Math.log(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.log(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("1/x")) {
-                localResult = 1 / Double.parseDouble(tfield.getText());
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = 1 / Double.parseDouble(tfield.getText());
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("Exp")) {
-                localResult = Math.exp(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.exp(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("x^2")) {
-                localResult = Math.pow(Double.parseDouble(tfield.getText()), 2);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.pow(Double.parseDouble(tfield.getText()), 2);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("x^3")) {
-                localResult = Math.pow(Double.parseDouble(tfield.getText()), 3);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.pow(Double.parseDouble(tfield.getText()), 3);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("+/-")) {
@@ -214,35 +214,35 @@ public class ResultShownState implements State {
             info.setText("memory store: " + tfield.getText());
         }
         if (s.equals("Sqrt")) {
-                localResult = Math.sqrt(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = Math.sqrt(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("SIN")) {
-                double degrees = Double.parseDouble(tfield.getText());
-                double radians = Math.toRadians(degrees);
-                localResult = Math.sin(radians);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            double degrees = Double.parseDouble(tfield.getText());
+            double radians = Math.toRadians(degrees);
+            localResult = Math.sin(radians);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
 
         }
         if (s.equals("COS")) {
-                double degrees = Double.parseDouble(tfield.getText());
-                double radians = Math.toRadians(degrees);
-                double asquare = (1) - (Math.sin(radians)*Math.sin(radians) );
-                localResult = Math.sqrt(asquare);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            double degrees = Double.parseDouble(tfield.getText());
+            double radians = Math.toRadians(degrees);
+            double asquare = (1) - (Math.sin(radians) * Math.sin(radians));
+            localResult = Math.sqrt(asquare);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         if (s.equals("TAN")) {
-                double degrees = Double.parseDouble(tfield.getText());
-                double radians = Math.toRadians(degrees);
-                localResult = Math.tan(radians);
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            double degrees = Double.parseDouble(tfield.getText());
+            double radians = Math.toRadians(degrees);
+            localResult = Math.tan(radians);
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
 
         }
@@ -278,9 +278,9 @@ public class ResultShownState implements State {
 
         }
         if (s.equals("n!")) {
-                localResult = fact(Double.parseDouble(tfield.getText()));
-                tfield.setText("");
-                tfield.setText(tfield.getText() + localResult);
+            localResult = fact(Double.parseDouble(tfield.getText()));
+            tfield.setText("");
+            tfield.setText(tfield.getText() + localResult);
 
         }
         tfield.requestFocus();

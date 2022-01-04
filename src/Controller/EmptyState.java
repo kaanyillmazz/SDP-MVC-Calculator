@@ -2,7 +2,7 @@ package Controller;
 
 import javax.swing.*;
 
-public class EmptyState implements State{
+public class EmptyState implements State {
     ButtonListener buttonListener;
     JTextField tfield;
     JLabel info;
@@ -13,6 +13,7 @@ public class EmptyState implements State{
         this.info = buttonListener.info;
 
     }
+
     public void Execute(String s) {
 
         if (s.equals("1")) {
@@ -95,15 +96,15 @@ public class EmptyState implements State{
         }
         if (s.equals("+")) {
 
-                tfield.setText("");
-                buttonListener.setFirst(0);
-                buttonListener.setOperation('+');
+            tfield.setText("");
+            buttonListener.setFirst(0);
+            buttonListener.setOperation('+');
 
             tfield.requestFocus();
         }
         if (s.equals("-")) {
 
-                tfield.setText("");
+            tfield.setText("");
             buttonListener.setFirst(0);
             buttonListener.setOperation('-');
 
@@ -111,7 +112,7 @@ public class EmptyState implements State{
         }
         if (s.equals("/")) {
 
-                tfield.setText("");
+            tfield.setText("");
             buttonListener.setFirst(1);
             buttonListener.setOperation('/');
 
@@ -119,7 +120,7 @@ public class EmptyState implements State{
         }
         if (s.equals("*")) {
 
-                tfield.setText("");
+            tfield.setText("");
             buttonListener.setFirst(1);
             buttonListener.setOperation('*');
 
@@ -164,27 +165,27 @@ public class EmptyState implements State{
             info.setText("memory store: " + tfield.getText());
         }
         if (s.equals("Sqrt")) {
-                tfield.setText("");
+            tfield.setText("");
 
         }
         if (s.equals("SIN")) {
-                tfield.setText("");
+            tfield.setText("");
 
         }
         if (s.equals("COS")) {
-                tfield.setText("");
+            tfield.setText("");
 
         }
         if (s.equals("TAN")) {
-                tfield.setText("");
+            tfield.setText("");
 
         }
         if (s.equals("=")) {
-                tfield.setText("");
+            tfield.setText("");
 
         }
         if (s.equals("n!")) {
-                tfield.setText("");
+            tfield.setText("");
 
         }
         tfield.requestFocus();

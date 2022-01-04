@@ -57,7 +57,7 @@ public class ScientificCalculator extends JFrame implements Calculator {
         inputField = new JTextField(20);
         inputField.setEditable(false);
         buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(0, 3,2,2 ));
+        buttonPanel.setLayout(new GridLayout(0, 3, 2, 2));
         info = new JLabel("Scientific Calculator");
 
         inputField.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -223,10 +223,6 @@ public class ScientificCalculator extends JFrame implements Calculator {
 
         return scientificCalculator;
     }
-
-
-
-
 
 
 }

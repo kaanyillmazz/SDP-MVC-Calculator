@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-public class BasicCalculator extends JFrame implements Calculator{
+public class BasicCalculator extends JFrame implements Calculator {
     private static BasicCalculator basicCalculator = null;
     Container container;
     JButton b1;
@@ -42,7 +42,7 @@ public class BasicCalculator extends JFrame implements Calculator{
         container.setLayout(new BorderLayout());
         inputPanel = new JPanel();
         buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(0, 4,2,2 ));
+        buttonPanel.setLayout(new GridLayout(0, 4, 2, 2));
 
         inputField = new JTextField(20);
         inputField.setEditable(false);
@@ -149,10 +149,10 @@ public class BasicCalculator extends JFrame implements Calculator{
     }
 
     public static BasicCalculator getInstance() {
-        if(basicCalculator == null)
+        if (basicCalculator == null)
             basicCalculator = new BasicCalculator();
 
-            return basicCalculator;
+        return basicCalculator;
 
     }
 }
