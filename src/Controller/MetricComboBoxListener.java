@@ -61,7 +61,7 @@ public class MetricComboBoxListener implements ActionListener {
                 warning.setTitle("Warning!");
                 warning.add(warn);
                 warning.setVisible(true);
-                warning.setLocationRelativeTo(null);
+                warning.setLocationRelativeTo(((JComboBox)e.getSource()));
                 warning.pack();
             } else {
                 unit2label.setText(unitGetter);

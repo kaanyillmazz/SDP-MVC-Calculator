@@ -50,7 +50,7 @@ public class MetricButtonsListener implements ActionListener {
                 warning.setTitle("Warning!");
                 warning.add(warn);
                 warning.setVisible(true);
-                warning.setLocationRelativeTo(null);
+                warning.setLocationRelativeTo(jc2);
                 warning.pack();
             }
             //Check if the user requested one of the available conversion classes
@@ -60,7 +60,7 @@ public class MetricButtonsListener implements ActionListener {
                 resultHolder = command.Execute(Double.parseDouble(inputField.getText()));
             } catch (IllegalArgumentException i) {
                 //had to try catch again to avoid system from throwing an error
-                //in case of user entering numbers
+                //in case of user entering letters instead of numbers
                 try {
                     unitGetter = unit2label.getText() + "To" + unit1label.getText();
                     command = conversionCommandFactory.Create(ConversionType.valueOf(unitGetter));
@@ -86,7 +86,7 @@ public class MetricButtonsListener implements ActionListener {
             warning.setTitle("Warning!");
             warning.add(warn);
             warning.setVisible(true);
-            warning.setLocationRelativeTo(null);
+            warning.setLocationRelativeTo(jc2);
             warning.pack();
         } else if (metricCalculatorController.getOperationState() == 0) {
             JDialog warning = new JDialog();
@@ -94,7 +94,7 @@ public class MetricButtonsListener implements ActionListener {
             warning.setTitle("Warning!");
             warning.add(warn);
             warning.setVisible(true);
-            warning.setLocationRelativeTo(null);
+            warning.setLocationRelativeTo(jc2);
             warning.pack();
         }
 

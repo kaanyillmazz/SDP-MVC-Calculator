@@ -182,16 +182,13 @@ public class OperatingState implements State {
             info.setText("memory store: " + inputField.getText());
         }
         if (cmd.equals("Sqrt")) {
-            if (inputField.getText().equals("")) {
-                inputField.setText("");
-            } else {
                 localResult = Math.sqrt(Double.parseDouble(inputField.getText()));
                 inputField.setText("");
                 inputField.setText(inputField.getText() + localResult);
-            }
+            calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
+
         }
         if (cmd.equals("SIN")) {
-
             double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
             localResult = Math.sin(radians);
@@ -200,7 +197,6 @@ public class OperatingState implements State {
             calculatorButtonListener.setCurrentState(calculatorButtonListener.getResultShownState());
         }
         if (cmd.equals("COS")) {
-
             double degrees = Double.parseDouble(inputField.getText());
             double radians = Math.toRadians(degrees);
             double asquare = (1) - (Math.sin(radians) * Math.sin(radians));
@@ -252,6 +248,9 @@ public class OperatingState implements State {
         inputField.requestFocus();
     }
     double fact(double x) {
+        if(x < 1 && x > 0) {
+            return 0;
+        }
         if (x == 0)
             return 1;
         else
